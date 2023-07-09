@@ -1,0 +1,92 @@
+<template>
+  <div class="flex flex-col flex-wrap m-4 my-16">
+    <div class="flex items-center text-xl">
+      <font-awesome-icon
+        class="mr-2"
+        icon="fa-solid fa-list"
+      />
+      <div>{{ props.title }}</div>
+    </div>
+    <div class="flex flex-row items-center justify-center mb-4">
+      <div class="flex flex-col items-center justify-center mx-8 my-4">
+        <div class="text-2xl text-red-600">
+          {{ props.links.repo.length }}
+        </div>
+        <div class="text-xl">
+          Repos
+        </div>
+      </div>
+      <div class="flex flex-col items-center justify-center mx-8 my-4">
+        <div class="text-2xl text-red-600">
+          {{ props.links.article.length }}
+        </div>
+        <div class="text-xl">
+          Articles
+        </div>
+      </div>
+    </div>
+    <div class="ml-4">
+      <slot />
+    </div>
+    <div
+      class="ml-4 hover:cursor-pointer text-xs underline"
+      @click="toggleShow"
+    >
+      Related Links
+      <font-awesome-icon
+        v-if="show"
+        class="mr-2"
+        icon="fa-solid fa-angle-down"
+      />
+      <font-awesome-icon
+        v-else
+        class="mr-2"
+        icon="fa-solid fa-angle-right"
+      />
+    </div>
+    <div
+      v-if="show"
+      class="mx-4"
+    >
+      <ul
+        class="sm:grid sm:grid-cols-2 lg:grid-cols-3 list-inside list-disc text-xs"
+      >
+        <li
+          v-for="r in props.links.repo"
+          :key="r"
+          class="overflow-hidden whitespace-nowrap"
+        >
+          <a :href="'https://github.com/' + r">
+            <font-awesome-icon
+              class="mr-2"
+              :icon="['fab', 'github']"
+            />
+
+            {{ r }}</a>
+        </li>
+        <li
+          v-for="(r, index) in props.links.article"
+          :key="r"
+        >
+          <a :href="r">
+            <font-awesome-icon
+              class="mr-2"
+              :icon="['fab', 'medium']"
+            />
+            article{{ index }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</template>
+
+<script setup>
+const props = defineProps({
+  links: { type: Object, required: true },
+  title: { type: String, required: true },
+});
+let show = ref(false);
+function toggleShow() {
+  show.value = !show.value;
+}
+</script>

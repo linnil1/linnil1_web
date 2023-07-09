@@ -1,0 +1,15 @@
+name = "linnil1-profile"
+workers_dev = false
+compatibility_date = "2023-06-28"
+route = { pattern = "linnil1.tw/*", zone_name = "linnil1.tw" }
+
+main = ".output/server/index.mjs"
+account_id = "84360be8d748ddadfd6897136883929a"
+
+[[kv_namespaces]]
+binding = "linnil1_repos_list"
+id = "e6e066a355ac4f78b1097e04409badb9"
+preview_id = "a99fe2a72fae496d9ba9745d4a22b15e"
+
+[site]
+bucket = ".output/public"
