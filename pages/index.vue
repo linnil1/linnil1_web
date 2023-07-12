@@ -10,7 +10,7 @@
           Hi, I'm linnil1
         </div>
         <div class="text-lg">
-          I love Python, Open-source, bioinfomatics and Devops
+          I love Python, Open source, Bioinfomatics and Devops
         </div>
         <div class="flex flex-row flex-wrap items-center justify-center gap-5">
           <div class="mt-10 basis-full text-center">
@@ -57,7 +57,7 @@
         :links="link"
         :title="link.title"
       >
-        <p v-html="link.text" />
+        <p>{{ link.text }}</p>
       </repo-classification>
     </div>
 
@@ -65,7 +65,7 @@
       class="mt-32 mb-16"
       text="Experience"
     />
-    <div class="max-w-xl m-4">
+    <div class="m-4">
       <row-experience
         v-for="exp in experiences"
         :key="exp.title"
@@ -76,6 +76,11 @@
       />
     </div>
   </div>
+  <footer class="bg-gray-800 text-white p-4 mt-32">
+    <div class="mx-auto text-center">
+      <p>&copy; 2023 linnil1. All rights reserved.</p>
+    </div>
+  </footer>
 </template>
 
 <script setup langs="ts">

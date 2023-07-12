@@ -22,6 +22,11 @@ export default defineEventHandler(async (event) => {
           Long Description. Long Description.
           Long Description. Long Description.
         `,
+      skill: {
+        Advanced: [],
+        Intermediate: ["vuejs", "tailwindcss"],
+        Familiar: [],
+      },
     },
   };
 });

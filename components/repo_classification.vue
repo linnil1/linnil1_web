@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col flex-wrap m-4 my-16">
-    <div class="flex items-center text-xl">
+    <div class="flex items-center text-2xl">
       <font-awesome-icon
         class="mr-2"
         icon="fa-solid fa-list"
@@ -27,6 +27,31 @@
     </div>
     <div class="ml-4">
       <slot />
+    </div>
+    <div>
+      <div class="flex flex-wrap m-2 ml-4 items-center">
+        <div class="mr-4">
+          Skills:
+        </div>
+        <tech-stack
+          v-for="brand in links.skill.Advanced"
+          :key="brand"
+          :brand="brand"
+          level="Advanced"
+        />
+        <tech-stack
+          v-for="brand in links.skill.Intermediate"
+          :key="brand"
+          :brand="brand"
+          level="Intermediate"
+        />
+        <tech-stack
+          v-for="brand in links.skill.Familiar"
+          :key="brand"
+          :brand="brand"
+          level="Familiar"
+        />
+      </div>
     </div>
     <div
       class="ml-4 hover:cursor-pointer text-xs underline"
