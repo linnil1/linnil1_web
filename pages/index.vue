@@ -78,6 +78,13 @@
   </div>
   <footer class="bg-gray-800 text-white p-4 mt-32">
     <div class="mx-auto text-center">
+      <a href="https://github.com/linnil1/linnil1_web">
+        Powered by
+        <font-awesome-icon
+          class="mx-2"
+          :icon="['fab', 'github']"
+        />linnil1/linnil1_web
+      </a>
       <p>&copy; 2023 linnil1. All rights reserved.</p>
     </div>
   </footer>
@@ -108,15 +115,17 @@ const { data: links } = await useFetch("/api/repos");
 const links = {
   frontend: {
     title: "Frontend",
-    repo: [
-      "linnil1/nyadoi_oh_so_cute",
-    ],
+    repo: ["linnil1/nyadoi_oh_so_cute"],
     alive: 1,
-    article: [
-    ],
+    article: [],
     text: `
       Description
     `,
+    skill: {
+      Advanced: [],
+      Intermediate: ["vuejs", "tailwindcss"],
+      Familiar: [],
+    },
   },
 };
 */
@@ -128,6 +137,6 @@ const experiences = [
     date: "2019 - 2022",
     type: "c4lab",
   },
-]
- */
+];
+*/
 </script>
