@@ -1,0 +1,22 @@
+name: Test lint and publish to cloudflare
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: "20.4.0"
+        cache: 'yarn'
+        cache-dependency-path: 'yarn.lock'
+    - run: yarn check-lint 
+    # - run: yarn test
+    - uses: cloudflare/pages-action@v1
+      with:
+        apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        wranglerVersion: '3'

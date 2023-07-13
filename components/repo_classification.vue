@@ -1,10 +1,7 @@
 <template>
   <div class="flex flex-col flex-wrap m-4 my-16">
     <div class="flex items-center text-2xl">
-      <font-awesome-icon
-        class="mr-2"
-        icon="fa-solid fa-list"
-      />
+      <font-awesome-icon class="mr-2" icon="fa-solid fa-list" />
       <div>{{ props.title }}</div>
     </div>
     <div class="flex flex-row items-center justify-center mb-4">
@@ -12,17 +9,13 @@
         <div class="text-2xl text-red-600">
           {{ props.links.repo.length }}
         </div>
-        <div class="text-xl">
-          Repos
-        </div>
+        <div class="text-xl">Repos</div>
       </div>
       <div class="flex flex-col items-center justify-center mx-8 my-4">
         <div class="text-2xl text-red-600">
           {{ props.links.article.length }}
         </div>
-        <div class="text-xl">
-          Articles
-        </div>
+        <div class="text-xl">Articles</div>
       </div>
     </div>
     <div class="ml-4">
@@ -30,9 +23,7 @@
     </div>
     <div>
       <div class="flex flex-wrap m-2 ml-4 items-center">
-        <div class="mr-4">
-          Skills:
-        </div>
+        <div class="mr-4">Skills:</div>
         <tech-stack
           v-for="brand in links.skill.Advanced"
           :key="brand"
@@ -63,16 +54,9 @@
         class="mr-2"
         icon="fa-solid fa-angle-down"
       />
-      <font-awesome-icon
-        v-else
-        class="mr-2"
-        icon="fa-solid fa-angle-right"
-      />
+      <font-awesome-icon v-else class="mr-2" icon="fa-solid fa-angle-right" />
     </div>
-    <div
-      v-if="show"
-      class="mx-4"
-    >
+    <div v-if="show" class="mx-4">
       <ul
         class="sm:grid sm:grid-cols-2 lg:grid-cols-3 list-inside list-disc text-xs"
       >
@@ -82,23 +66,16 @@
           class="overflow-hidden whitespace-nowrap"
         >
           <a :href="'https://github.com/' + r">
-            <font-awesome-icon
-              class="mr-2"
-              :icon="['fab', 'github']"
-            />
+            <font-awesome-icon class="mr-2" :icon="['fab', 'github']" />
 
-            {{ r }}</a>
+            {{ r }}</a
+          >
         </li>
-        <li
-          v-for="(r, index) in props.links.article"
-          :key="r"
-        >
+        <li v-for="(r, index) in props.links.article" :key="r">
           <a :href="r">
-            <font-awesome-icon
-              class="mr-2"
-              :icon="['fab', 'medium']"
-            />
-            article{{ index }}</a>
+            <font-awesome-icon class="mr-2" :icon="['fab', 'medium']" />
+            article{{ index }}</a
+          >
         </li>
       </ul>
     </div>

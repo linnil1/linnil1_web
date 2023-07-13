@@ -1,8 +1,14 @@
 # linnil1's profile website
 
+linnil1's website
+
+https://linnil1.tw
+
+
 ## Environment
 
 - Node 20.3.1
+
 
 ## Development
 
@@ -12,6 +18,7 @@ Develop on local
 yarn
 yarn dev
 ```
+
 
 ## Deploy
 
@@ -23,6 +30,7 @@ wrangler kv:namespace create linnil1_profile
 NITRO_PRESET=cloudflare yarn build
 wrangler deploy
 ```
+
 
 ## Update the status/repos/experiences
 

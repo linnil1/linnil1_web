@@ -14,7 +14,7 @@
         class="w-5 h-5 overflow-hidden"
         :src="setImg(props.brand)"
         :alt="brand"
-      >
+      />
     </div>
     <div
       v-if="show"

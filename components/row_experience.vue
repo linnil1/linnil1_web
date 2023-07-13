@@ -4,32 +4,17 @@
       <div>{{ props.title }}</div>
       <div>{{ props.date }}</div>
     </div>
-    <a
-      v-if="props.type === 'c4lab'"
-      href="https://c4lab.bime.ntu.edu.tw"
-    >
-      <img
-        class="w-36"
-        src="~/assets/c4Lab.png"
-      >
+    <a v-if="props.type === 'c4lab'" href="https://c4lab.bime.ntu.edu.tw">
+      <img class="w-36" src="~/assets/c4Lab.png" />
     </a>
     <a
       v-if="props.type === 'toolmen'"
       href="https://www.mlmvlab.bime.ntu.edu.tw"
     >
-      <img
-        class="w-36"
-        src="~/assets/toolmen.png"
-      >
+      <img class="w-36" src="~/assets/toolmen.png" />
     </a>
-    <a
-      v-if="props.type === 'pixnet'"
-      href="https://pixnet.net"
-    >
-      <img
-        class="w-36"
-        src="~/assets/pixnet.png"
-      >
+    <a v-if="props.type === 'pixnet'" href="https://pixnet.net">
+      <img class="w-36" src="~/assets/pixnet.png" />
     </a>
   </div>
 </template>

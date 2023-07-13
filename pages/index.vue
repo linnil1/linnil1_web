@@ -1,21 +1,14 @@
 <template>
   <div class="container mx-auto max-w-3xl">
     <div class="pt-16 flex flex-wrap items-center justify-center">
-      <img
-        class="w-48 rounded-full"
-        src="~/assets/linnil1.png"
-      >
+      <img class="w-48 rounded-full" src="~/assets/linnil1.png" />
       <div class="m-16 w-64 text-center">
-        <div class="text-3xl">
-          Hi, I'm linnil1
-        </div>
+        <div class="text-3xl">Hi, I'm linnil1</div>
         <div class="text-lg">
           I love Python, Open source, Bioinfomatics and Devops
         </div>
         <div class="flex flex-row flex-wrap items-center justify-center gap-5">
-          <div class="mt-10 basis-full text-center">
-            Contact me:
-          </div>
+          <div class="mt-10 basis-full text-center">Contact me:</div>
           <social-link
             name="Github"
             brand="github"
@@ -46,10 +39,7 @@
         text="Alive services"
       />
     </div>
-    <hr-text
-      class="mt-32"
-      text="Repository"
-    />
+    <hr-text class="mt-32" text="Repository" />
     <div>
       <repo-classification
         v-for="link in links"
@@ -61,10 +51,7 @@
       </repo-classification>
     </div>
 
-    <hr-text
-      class="mt-32 mb-16"
-      text="Experience"
-    />
+    <hr-text class="mt-32 mb-16" text="Experience" />
     <div class="m-4">
       <row-experience
         v-for="exp in experiences"
