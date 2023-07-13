@@ -4,6 +4,9 @@ on:
   push:
     branches: [ "main" ]
 
+env:
+  NITRO_PRESET: cloudflare
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,9 +17,10 @@ jobs:
         node-version: "20.4.0"
         cache: 'yarn'
         cache-dependency-path: 'yarn.lock'
+    - run: yarn install --frozen-lockfile
     - run: yarn check-lint 
     # - run: yarn test
-    - uses: cloudflare/pages-action@v1
+    - run: yarn build
+    - uses: cloudflare/wrangler-action@2.0.0
       with:
         apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-        wranglerVersion: '3'
