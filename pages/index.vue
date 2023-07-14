@@ -23,17 +23,15 @@
     <hr-text :text="$t('status')" />
     <div class="flex flex-wrap item-start justify-center">
       <card-counter
-        :count="Object.values(links).reduce((acc, i) => acc + i.repo.length, 0)"
+        :count="links.reduce((acc, i) => acc + i.repo.length, 0)"
         :text="$t('open_source_repos')"
       />
       <card-counter
-        :count="
-          Object.values(links).reduce((acc, i) => acc + i.article.length, 0)
-        "
+        :count="links.reduce((acc, i) => acc + i.article.length, 0)"
         :text="$t('articles')"
       />
       <card-counter
-        :count="Object.values(links).reduce((acc, i) => acc + i.alive, 0)"
+        :count="links.reduce((acc, i) => acc + i.alive, 0)"
         :text="$t('alive_services')"
       />
     </div>
@@ -108,34 +106,15 @@ useHead({
   ],
 });
 const { locale } = useI18n();
-
-const { data: links } = await useFetch("/api/repos");
-/*
-const links = {
-  frontend: {
-    title: "Frontend",
-    repo: ["linnil1/nyadoi_oh_so_cute"],
-    alive: 1,
-    article: [],
-    text: `
-      Description
-    `,
-    skill: {
-      Advanced: [],
-      Intermediate: ["vuejs", "tailwindcss"],
-      Familiar: [],
-    },
-  },
-};
-*/
-const { data: experiences } = await useFetch("/api/experiences");
-/*
-const experiences = [
-  {
-    title: "Student in c4lab",
-    date: "2019 - 2022",
-    type: "c4lab",
-  },
-];
-*/
+const { data: links } = await useFetch("/api/repos?lang=" + locale.value);
+const { data: experiences } = await useFetch(
+  "/api/experiences?lang=" + locale.value,
+);
+// data structure is described in server/api/*
+watch(locale, async () => {
+  const resp = await fetch("/api/repos?lang=" + locale.value);
+  links.value = await resp.json();
+  const resp1 = await fetch("/api/experiences?lang=" + locale.value);
+  experiences.value = await resp1.json();
+});
 </script>

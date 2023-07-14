@@ -1,6 +1,6 @@
 export default defineI18nConfig(() => ({
   legacy: false,
-  locale: "zh-tw",
+  locale: "en",
   messages: {
     en: {
       hi: "Hi, I'm linnil1",

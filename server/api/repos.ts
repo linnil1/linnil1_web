@@ -1,16 +1,15 @@
 export default defineEventHandler(async (event) => {
-  if (typeof linnil1_profile != "undefined")
-    return await linnil1_profile.get("repos", { type: "json" });
-  const config = useRuntimeConfig();
-  if (config.use_nitro_db)
-    return await useStorage("db").getItem("repos", { type: "json" });
-  return {
-    frontend: {
-      title: "Frontend",
-      repo: ["linnil1/nyadoi_oh_so_cute"],
-      alive: 1,
-      article: [],
-      text: `
+  let data = await queryKV("repos");
+  if (data === undefined)
+    data = JSON.parse(
+      JSON.stringify([
+        {
+          title: "Frontend",
+          "title.zh-tw": "前端",
+          repo: ["linnil1/nyadoi_oh_so_cute"],
+          alive: 1,
+          article: [],
+          text: `
           Long Description. Long Description.
           Long Description. Long Description.
           Long Description. Long Description.
@@ -21,12 +20,26 @@ export default defineEventHandler(async (event) => {
           Long Description. Long Description.
           Long Description. Long Description.
           Long Description. Long Description.
-        `,
-      skill: {
-        Advanced: ["vuejs"],
-        Intermediate: ["tailwindcss"],
-        Familiar: ["html5"],
-      },
-    },
-  };
+          `,
+          "text.zh-tw": `
+          很長很長很長很長很長很長ㄉ說明。
+          很長很長很長很長很長很長ㄉ說明。
+          很長很長很長很長很長很長ㄉ說明。
+          很長很長很長很長很長很長ㄉ說明。
+          很長很長很長很長很長很長ㄉ說明。
+          很長很長很長很長很長很長ㄉ說明。
+          很長很長很長很長很長很長ㄉ說明。
+          `,
+          skill: {
+            Advanced: ["vuejs"],
+            Intermediate: ["tailwindcss"],
+            Familiar: ["html5"],
+          },
+        },
+      ]),
+    );
+  const lang = getQuery(event).lang;
+  data = replaceByLang(data, lang, "title");
+  data = replaceByLang(data, lang, "text");
+  return data;
 });
