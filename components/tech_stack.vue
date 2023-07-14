@@ -18,9 +18,9 @@
     </div>
     <div
       v-if="show"
-      class="absolute -bottom-10 z-10 text-white bg-gray-600 w-fit p-1 mx-2 leading-none"
+      class="absolute -bottom-5 z-10 text-white bg-gray-600 p-1 mx-2 leading-none whitespace-nowrap"
     >
-      {{ props.brand }} : {{ props.level }}
+      {{ props.brand }} : {{ $t(props.level) }}
     </div>
   </div>
 </template>

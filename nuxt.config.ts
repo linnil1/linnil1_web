@@ -31,5 +31,5 @@ export default defineNuxtConfig({
     transpile: ["@fortawesome"],
   },
   css: ["@fortawesome/fontawesome-svg-core/styles.css"],
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/google-fonts"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/google-fonts", "@nuxtjs/i18n"],
 });

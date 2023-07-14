@@ -20,6 +20,7 @@
     "@nuxt/test-utils": "^3.6.2",
     "@nuxtjs/eslint-module": "^4.1.0",
     "@nuxtjs/google-fonts": "^3.0.1",
+    "@nuxtjs/i18n": "^8.0.0-beta.13",
     "@nuxtjs/tailwindcss": "^6.8.0",
     "@types/node": "^18",
     "eslint": "^8.44.0",
