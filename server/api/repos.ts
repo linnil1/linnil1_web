@@ -1,7 +1,7 @@
 export default defineEventHandler(async (event) => {
-  let data = await queryKV("repos");
-  if (data === undefined)
-    data = JSON.parse(
+  let data = await queryKV(
+    "repos",
+    JSON.parse(
       JSON.stringify([
         {
           title: "Frontend",
@@ -37,8 +37,9 @@ export default defineEventHandler(async (event) => {
           },
         },
       ]),
-    );
-  const lang = getQuery(event).lang;
+    ),
+  );
+  const lang: string = getQuery(event).lang?.toString() || "en";
   data = replaceByLang(data, lang, "title");
   data = replaceByLang(data, lang, "text");
   return data;

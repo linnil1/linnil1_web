@@ -1,7 +1,7 @@
 export default defineEventHandler(async (event) => {
-  let data = await queryKV("experiences");
-  if (data === undefined)
-    data = JSON.parse(
+  let data = await queryKV(
+    "experiences",
+    JSON.parse(
       JSON.stringify([
         {
           title: "Student in c4lab",
@@ -10,8 +10,9 @@ export default defineEventHandler(async (event) => {
           type: "c4lab",
         },
       ]),
-    );
-  const lang = getQuery(event).lang;
+    ),
+  );
+  const lang: string = getQuery(event).lang?.toString() || "en";
   data = replaceByLang(data, lang, "title");
   return data;
 });

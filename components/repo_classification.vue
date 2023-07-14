@@ -9,13 +9,17 @@
         <div class="text-2xl text-red-600">
           {{ props.links.repo.length }}
         </div>
-        <div class="text-xl">{{ $t("repo") }}</div>
+        <div class="text-xl">
+          {{ $t("repo") }}
+        </div>
       </div>
       <div class="flex flex-col items-center justify-center mx-8 my-4">
         <div class="text-2xl text-red-600">
           {{ props.links.article.length }}
         </div>
-        <div class="text-xl">{{ $t("articles") }}</div>
+        <div class="text-xl">
+          {{ $t("articles") }}
+        </div>
       </div>
     </div>
     <div class="ml-4">
@@ -82,12 +86,12 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const props = defineProps({
   links: { type: Object, required: true },
   title: { type: String, required: true },
 });
-let show = ref(false);
+const show = ref(false);
 function toggleShow() {
   show.value = !show.value;
 }

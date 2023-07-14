@@ -24,14 +24,14 @@
     </div>
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
 const props = defineProps({
   brand: { type: String, required: true },
   level: { type: String, required: true },
 });
-let show = ref(false);
-function setImg(brand) {
-  const other_links = {
+const show = ref(false);
+function setImg(brand: string): string {
+  const other_links: { [key: string]: string } = {
     airflow:
       "https://cwiki.apache.org/confluence/download/attachments/145723561/airflow_64x64_emoji_transparent.png?api=v2",
     cwl: "https://raw.githubusercontent.com/common-workflow-language/media/main/CWL-Logo-nofonts.svg",
@@ -47,10 +47,13 @@ function setImg(brand) {
     influxdb:
       "https://www.vectorlogo.zone/logos/influxdata/influxdata-icon.svg",
   };
-  if (brand in other_links) return other_links[brand];
+  if (brand in other_links) {
+    return other_links[brand];
+  }
   let favor = "original";
-  if (brand == "tailwindcss" || brand == "django" || brand == "kubernetes")
+  if (brand === "tailwindcss" || brand === "django" || brand === "kubernetes") {
     favor = "plain";
+  }
   return (
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/" +
     brand +
@@ -61,10 +64,15 @@ function setImg(brand) {
     ".svg"
   );
 }
-function levelToColor(level) {
+function levelToColor(level: string): string {
   // gold silver bronze
-  if (level === "Advanced") return "border-[#D9BE4C]";
-  else if (level === "Intermediate") return "border-[#B3B4BA]";
-  else if (level === "Familiar") return "border-[#C08A50]";
+  if (level === "Advanced") {
+    return "border-[#D9BE4C]";
+  } else if (level === "Intermediate") {
+    return "border-[#B3B4BA]";
+  } else if (level === "Familiar") {
+    return "border-[#C08A50]";
+  }
+  return "";
 }
 </script>

@@ -1,12 +1,17 @@
-module.exports = {
-  extends: ["plugin:vue/vue3-recommended", "plugin:prettier/recommended"],
+{
+  extends: [
+    "@nuxtjs/eslint-config-typescript",
+    "plugin:vue/vue3-recommended",
+    "plugin:prettier/recommended",
+  ],
   rules: {
     "vue/multi-word-component-names": ["error", { ignores: ["index"] }],
     "prettier/prettier": "error",
+    'camelcase': 'off',
   },
-  parserOptions: {
+  "parserOptions": {
     ecmaVersion: "latest",
     sourceType: "module",
   },
   plugins: ["prettier"],
-};
+}

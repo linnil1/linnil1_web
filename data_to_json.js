@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require("fs");  // eslint-disable-line
 
 fs.writeFileSync(
   "db/experiences",
@@ -26,8 +26,8 @@ fs.writeFileSync(
         Intermediate: ["vuejs"],
         Familiar: ["html5"],
       },
-      text: ` Descriptions `,
-      "text.zh-tw": ` 敘述 `,
+      text: " Descriptions ",
+      "text.zh-tw": " 敘述 ",
     },
   ]),
 );

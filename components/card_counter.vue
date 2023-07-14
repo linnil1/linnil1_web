@@ -3,15 +3,15 @@
     <div
       class="border rounded-full p-12 w-0 h-0 flex items-center justify-center border-gray-400"
     >
-      <div class="text-2xl text-red-600">{{ count }}+</div>
+      <div class="text-2xl text-red-600">{{ props.count }}+</div>
     </div>
     <div class="text-xl text-center">
-      {{ text }}
+      {{ props.text }}
     </div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const props = defineProps({
   count: { type: Number, required: true },
   text: { type: String, required: true },

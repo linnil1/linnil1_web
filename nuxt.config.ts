@@ -8,7 +8,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     // using default or use local KV testing
-    use_nitro_db: true && process.env.NODE_ENV == "development",
+    use_nitro_db: true && process.env.NODE_ENV === "development",
   },
   nitro: {
     devStorage: {
@@ -24,6 +24,9 @@ export default defineNuxtConfig({
       "Noto Sans TC": true,
       "Noto Serif TC": true,
     },
+  },
+  typescript: {
+    typeCheck: true,
   },
   build: {
     transpile: ["@fortawesome"],
